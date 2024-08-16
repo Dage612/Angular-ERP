@@ -1,0 +1,10 @@
+
+  #login-modal {
+    margin-top: 70px; 
+  }
+
+  .custom-white-bg {
+    background-color: rgba(255, 255, 255, 0.897); /* Ajusta el último valor (0.9) para cambiar la opacidad */
+    border: 1px solid #ddd; /* Puedes personalizar el color del borde según tus preferencias */
+  }
+  

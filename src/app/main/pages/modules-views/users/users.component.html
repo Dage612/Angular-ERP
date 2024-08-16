@@ -1,0 +1,38 @@
+<div class="page-wrapper flex-grow-1">
+  <div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+      <h3 class="text-themecolor">Usuarios</h3>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/OtherQuery">Usuarios</a>
+        </li>
+        <li class="breadcrumb-item active">Usuarios</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row flex-grow-1">
+    <app-section-tabs [tabs]="dynamicTabs"></app-section-tabs>
+  </div>
+
+  <div class="tab-content">
+    <ng-container *ngIf="(activeTabService.activeIndex$ | async) === 0">
+      <!-- Contenido dinámico de la pestaña 1 -->
+      <div class="row flex-grow-1">
+        <!-- <app-dynamic-form [formInputs]="customerInputsForm" class="col-md-4 mb-3"></app-dynamic-form> -->
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="(activeTabService.activeIndex$ | async) === 1">
+      <!-- Contenido dinámico de la pestaña 2 (Seguridad) -->
+      <div class="row flex-grow-1">
+        <!-- Agrega aquí tu contenido para la pestaña de seguridad -->
+        <h4>Contenido de Seguridad</h4>
+        <!-- Puedes agregar más elementos según sea necesario -->
+      </div>
+    </ng-container>
+
+    <!-- Agrega más ng-container para más pestañas según sea necesario -->
+
+  </div>
+</div>

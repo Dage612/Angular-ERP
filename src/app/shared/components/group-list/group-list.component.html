@@ -1,0 +1,36 @@
+<div class="rounded-select">
+    <div class="row">
+        <div class="col">
+            <div class="rounded-form">
+                <div class="rounded-select">
+                    <ul class="list-group">
+                        <!-- Iteración sobre la lista de miembros -->
+                        <ng-container *ngFor="let data of dataList">
+                            <!-- Primer elemento para el nombre del miembro -->
+                            <hr>
+                            <li class="list-group-item list-group-item-primary" aria-current="true">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>{{ data.name }}</span> <!-- Muestra el nombre del miembro -->
+                                    <div class="member-access-link">
+                                        <a class="member-access" routerLink="/tu-ruta-de-redireccion">
+                                            <p><strong>Acceder</strong> <fa-icon [icon]="faArrowRight"
+                                                    style="margin-left: 4px;"></fa-icon></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Sub-lista para compañías del miembro actual -->
+                            <li *ngFor="let company of data.companies" class="list-group-item">
+                                * {{ company.name }} -
+                                <span [ngStyle]="{ 'color': company.active ? 'green' : 'red' }">
+                                    {{ company.active ? 'Activa' : 'Inactiva' }}
+                                </span>
+                            </li>
+                        </ng-container>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

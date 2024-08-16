@@ -1,0 +1,110 @@
+.rounded-form {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  /* Puedes ajustar el color de fondo según tus preferencias */
+  width: 100%;
+  height: 100%;
+}
+
+.rounded-select {
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ffffff;
+  /* Puedes ajustar el color de fondo según tus preferencias */
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.ng-select.custom .ng-select-container {
+  min-height: 0px;
+  border-radius: 0;
+}
+
+#myCustomSelectContainer {
+  position: relative;
+  width: 300px;
+  /* Ajusta el ancho según tus necesidades */
+}
+
+#myCustomSelectContainer .ng-select {
+  width: 100%;
+}
+
+#myCustomSelectContainer .ng-dropdown-panel {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  width: 100%;
+  margin-top: 2px;
+  /* Ajusta el espacio entre el input y las opciones */
+  z-index: 9999;
+  /* Ajusta la superposición según sea necesario */
+}
+
+#myCustomSelectContainer .ng-option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+#myCustomSelectContainer .ng-option-selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#myCustomSelectContainer .ng-option[disabled] {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+#myCustomSelectContainer .ng-dropdown-panel,
+#myCustomSelectContainer .ng-option {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.has-warning {
+  border: 1px solid #ff9800;
+  /* Borde para warning */
+  background-color: #fff3e0;
+  /* Fondo para warning */
+}
+
+.has-danger {
+  border: 1px solid #f44336;
+  /* Borde para danger */
+  background-color: #ffcdd2;
+  /* Fondo para danger */
+}
+
+.has-right {
+  border: 1px solid #36f43c;
+  background-color: #d0f9c3;
+
+}
+
+.step-container {
+  margin-top: 50px;
+}
+
+.step {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.step-description {
+  font-size: 16px;
+  color: #333;
+}

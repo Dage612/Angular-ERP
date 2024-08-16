@@ -1,0 +1,48 @@
+.options-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  max-height: 100px;
+  overflow-y: auto;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options-container div {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.options-container div:hover {
+  background-color: #f0f0f0;
+}
+
+.options-container .selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.remove-option {
+  cursor: pointer;
+  margin-left: 8px;
+  color: #ff0000;
+  /* Puedes ajustar el color según tus preferencias */
+}
+
+.remove-option:hover {
+  text-decoration: underline;
+}
+
+.options-container.open {
+  display: block;
+}
+
+.options-container.closed {
+  display: none;
+}

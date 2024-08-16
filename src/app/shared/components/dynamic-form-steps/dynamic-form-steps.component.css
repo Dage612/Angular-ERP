@@ -1,0 +1,112 @@
+.step {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.step-description {
+  font-size: 20px;
+  color: #333;
+}
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.uploaded-image-container {
+  position: relative;
+  max-width: 100%;
+  max-height: 25%;
+  border: 1px solid #ddd;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.uploaded-image-container img {
+  margin-top: 3%;
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  display: block;
+}
+
+.delete-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  /* Puedes personalizar el fondo según tus preferencias */
+  border: none;
+  color: red;
+  /* Puedes personalizar el color según tus preferencias */
+  font-size: 1.5em;
+  /* Puedes ajustar el tamaño del texto según tus preferencias */
+  cursor: pointer;
+  padding: 5px;
+}
+
+.has-warning {
+  border: 1px solid #ff9800;
+  /* Borde para warning */
+  background-color: #fff3e0;
+  /* Fondo para warning */
+}
+
+.has-danger {
+  border: 1px solid #f44336;
+  /* Borde para danger */
+  background-color: #ffcdd2;
+  /* Fondo para danger */
+}
+
+.has-right {
+  border: 1px solid #36f43c;
+  background-color: #d0f9c3;
+}
+
+.rounded-form {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ced6e0;
+  width: 100%;
+  height: 100%;
+}
+
+.rounded-form-child {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.rounded-form-child-child {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  width: 100%;
+  height: 100%;
+}
+
+.required {
+  color: red;
+}

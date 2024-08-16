@@ -1,0 +1,20 @@
+<div class="page-wrapper flex-grow-1">
+    <div class="row flex-grow-1">
+        <app-section-tabs [tabs]="dynamicTabs"></app-section-tabs>
+    </div>
+    <div class="tab-content">
+        <ng-container *ngIf="(activeTabService.activeIndex$ | async) === 0">
+            <div class="row flex-grow-1">
+                <app-group-list [service]="this.memberService" serviceMethod="getMembers"></app-group-list>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="(activeTabService.activeIndex$ | async) === 1">
+            <div class="row flex-grow-1">
+                <div class="row flex-grow-1">
+                    <app-pending-list-to-approve [service]="this.memberService"
+                        serviceMethod="getMembersToApprove"></app-pending-list-to-approve>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

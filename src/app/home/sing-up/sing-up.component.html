@@ -1,0 +1,20 @@
+<!-- Updated login modal template -->
+<div class="modal fade show" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-modal="true"
+    style="margin-bottom: 100px; padding-right: 21px; display: block;">
+    <div class="modal-dialog" role="document">
+        <div class=" modal-content custom-white-bg">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Registrarse</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                <app-dynamic-form [formInputs]="singUpInputsForm" class="col-md-6 mb-3" [withOnSubmit]="false"
+                    [service]="this.memberService" serviceMethod="saveMember"></app-dynamic-form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="submitForm()"
+                    [disabled]="!getFormStatus">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</div>

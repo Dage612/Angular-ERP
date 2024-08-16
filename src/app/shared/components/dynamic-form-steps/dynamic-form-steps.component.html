@@ -1,0 +1,116 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="rounded-form">
+    <div class="row rounded-form-child">
+        <ng-container *ngFor="let step of steps">
+            <div *ngIf="currentStep === step.stepNumber" class="col-12 text-center">
+                <span class="step">{{ step.stepNumber }}</span>
+                <h1 class="step-description"><strong>{{ step.description }}</strong></h1>
+                <div class="rounded-form-child-child">
+                    <div class="row">
+                        <ng-container *ngFor="let input of getControlsForCurrentStep(); let i = index">
+                            <div class="{{step.class}}">
+                                <div class="form-group">
+                                    @if(input.required){
+                                    <label [for]="input.formControlName" class="col-form-label">
+                                        <strong>{{ input.label }}</strong>
+                                        <span *ngIf="input.required" class="required"> * </span>
+                                    </label>
+                                    }@else{
+                                    <label for=" {{ input.formControlName }}" class="col-form-label"><strong> {{
+                                            input.label
+                                            }}</strong></label>
+                                    }
+                                    <ng-container
+                                        *ngIf="input.type !== 'select' && input.type !== 'datalist' && input.type !== 'file'">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    [ngClass]="getErrorClasses(input.formControlName)">
+                                                    <fa-icon *ngIf="input.icon" [icon]="input.icon"></fa-icon>
+                                                </span>
+                                            </div>
+                                            <input [type]="input.type" [formControlName]="input.formControlName"
+                                                id="{{ input.formControlName }}" class="form-control"
+                                                [placeholder]="input.placeholder"
+                                                [ngClass]="getErrorClasses(input.formControlName)" autocomplete="off"
+                                                [maxlength]="getMaxLength(input.maxLength, input.dependencyFormControlName)"
+                                                [minlength]="getMinLength(input.minLength, input.dependencyFormControlName)"
+                                                (blur)="onLoadInput(input)" (keypress)="onKeyPress(input,$event)" />
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="input.type === 'select' && input.design !== 'checkbox'">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"
+                                                    [ngClass]="getErrorClasses(input.formControlName)">
+                                                    <fa-icon *ngIf="input.icon" [icon]="input.icon"></fa-icon>
+                                                </span>
+                                            </div>
+                                            <select [ngClass]="getErrorClasses(input.formControlName)"
+                                                class="form-control" formControlName="{{ input.formControlName }}"
+                                                (change)="onSelectChange(input, $event.target.value)">
+                                                <option value="" [disabled]="true">Seleccione</option>
+                                                <option *ngFor="let option of input.options" [value]="option.id">{{
+                                                    option.description }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf=" input.type==='select' && input.design=='checkbox'">
+                                        <div class=" rounded-select"
+                                            style="display: flex; flex-wrap: wrap; overflow-y: auto; max-height: 200px;">
+                                            <div *ngFor="let option of input.options; let j = index"
+                                                style="flex: 0 0 33.33%; box-sizing: border-box; padding: 5px;">
+                                                <input type="checkbox" [formControlName]="input.formControlName"
+                                                    [value]="option" id="{{ input.label + option }}"
+                                                    class="form-check-input" style="margin-right: 5px;" />
+                                                <label for="{{ input.label + option }}" class="form-check-label">{{
+                                                    option }}</label>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="input.type === 'datalist'">
+                                        <div class="form-group" [formGroup]="form" formArrayName="{{ input.label }}">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <fa-icon *ngIf="input.icon" [icon]="input.icon"></fa-icon>
+                                                    </span>
+                                                </div>
+                                                <!-- <div id="myCustomSelectContainer" class="card-body">
+                            <app-custom-multiselect #customMultiselect [options]="input.options"
+                              [(selectedOptions)]="selectedOptions"></app-custom-multiselect>
+                          </div> -->
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="input.type === 'file'">
+                                        <div class="input-group">
+                                            <input class="form-control"
+                                                [ngClass]="getErrorClasses(input.formControlName)" id="formFileSm"
+                                                type="file" (change)="handleFileInput(input, $event)">
+                                        </div>
+                                        <div *ngIf="input.imageData" class="uploaded-image-container">
+                                            <button class="delete-button" (click)="deleteImage(input)">X</button>
+                                            <img [src]="input.imageData" alt="Uploaded Image">
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+        <div class="d-flex justify-content-center" style="margin-top: 1.2%; margin-bottom: 1.2%;">
+            @if (isLastStep) {
+            <button (click)="previousStep()" class="btn btn-primary mr-2">Anterior</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+                Guardar
+            </button>
+            }@else {
+            <button (click)="previousStep()" class="btn btn-primary mr-2">Anterior</button>
+            <button (click)="nextStep()" class="btn btn-primary">Siguiente</button>
+            }
+        </div>
+    </div>
+</form>

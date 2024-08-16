@@ -1,0 +1,14 @@
+
+main {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+  }
+
+
+  .footer{
+    position: fixed;
+    bottom: 0; 
+    width: 100%
+  }

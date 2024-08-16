@@ -1,0 +1,15 @@
+<!-- custom-multiselect.component.html -->
+<div class="custom-multiselect" (click)="toggleOptionsContainer()">
+  <div class="multiselect-input-container">
+    <input #inputElement class="form-control multiselect-input" [(ngModel)]="selectedOptionsText"
+      placeholder="Opciones..." (focus)="onInputFocus()" />
+    <!-- Mostrar opciones filtradas -->
+    <div class="options-container" *ngIf="filteredOptions.length > 0"
+      [ngClass]="{'open': optionsContainerOpen, 'closed': !optionsContainerOpen}">
+      <div *ngFor="let option of filteredOptions" (click)="toggleOption(option)"
+        [class.selected]="selectedOptions.includes(option)">
+        {{ option }}
+      </div>
+    </div>
+  </div>
+</div>

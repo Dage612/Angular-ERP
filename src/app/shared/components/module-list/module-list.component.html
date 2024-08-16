@@ -1,0 +1,14 @@
+<div class="modules mt">
+    <div class="row">
+        <div *ngFor="let module of modules" class="col-md-3" (click)="navigate(module.route)">
+            <div class="card">
+                <img [src]="module.img || 'https://via.placeholder.com/100'" class="card-img-top img-fluid"
+                    alt="Module Image" style="width: auto; height: auto;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ module.name }}</h5>
+                    <p class="card-text">{{ module.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

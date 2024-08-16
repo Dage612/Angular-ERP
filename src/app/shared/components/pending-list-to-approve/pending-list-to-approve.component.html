@@ -1,0 +1,36 @@
+<div class="rounded-select">
+    <div class="row">
+        <div class="col">
+            <div class="rounded-form">
+                <div class="rounded-select">
+                    <div class="card">
+                        <!-- Agregar color primario al encabezado -->
+                        <div class="card-header bg-primary text-white">
+                            <h5 style="padding-top:5px;">Aprobación de miembros</h5>
+                        </div>
+                        <div class="card-body">
+                            <div *ngIf="dataList && dataList.length > 0; else noPendingMembers">
+                                <!-- Margen entre tarjetas para separar -->
+                                <div *ngFor="let item of dataList" class="card mb-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ item.name }}</h5>
+                                        <p class="card-text">
+                                            <strong>Identificación:</strong> {{ item.identification }}<br />
+                                            <strong>Fecha de registro:</strong> {{ item.strCreateDate }}
+                                        </p>
+                                        <button class="btn btn-success" (click)="approveMember(item)">Aprobar</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mensaje cuando no hay miembros pendientes -->
+                            <ng-template #noPendingMembers>
+                                <p>No se encuentran miembros pendientes de aprobar.</p>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand text-black" href="#">
+      <img src="./../../../assets/img/apple-icon.png" alt="Logo" width="30" height="24"
+        class="d-inline-block align-text-top" />
+     ERP
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-black"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-black" (click)="SingUpModal()">Regístrate</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">Características</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" href="#">Nosotros</a>
+        </li>
+      </ul>
+
+      <span class="navbar-text text-black">
+        <button class="btn btn-dark me-lg-2" (click)="LogInModal()">
+          Iniciar Sesión
+        </button>
+      </span>
+    </div>
+  </div>
+</nav>
+<main>
+  
+</main>
+
+<footer class="bg-dark text-white text-center p-3 footer">
+  SySCorp Latinoamérica &copy; {{ getYear() }} - Todos los derechos reservados
+</footer>
